@@ -1,0 +1,13 @@
+{
+    "wifi_ssid": "ssid",
+    "wifi_psk": "password",
+    "mqtt_server": "<mqtt server ip>",
+    "mqtt_user": "user",
+    "mqtt_password": "password",
+    "node_name": "devnode",
+    "button_pin": 0,
+    "dht_pin": 14,
+    "dht_interval": 10000,
+    "motion_pin": 13,
+    "relay_pin": 12,
+}
