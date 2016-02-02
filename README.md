@@ -34,6 +34,7 @@ I think this is in a rough, early stage, but it's doing useful things for me alr
 
 ## Installation
 An MQTT broker is required to do anything useful with this sketch. Most of the [References](#References) have details on setting up an MQTT broker. I'm using [Mosquitto](http://mosquitto.org/)  and I'm happy with it.
+
 1. Install the required libraries. You can find them in the Arduino library manager.
   - DHT sensor library by Adafruit Version 1.2.3 (Not Unified)
   - ArduinoJson by Benoit Blanchon Version 5.0.7
@@ -43,8 +44,14 @@ An MQTT broker is required to do anything useful with this sketch. Most of the [
 4. Upload the sketch.
 5. Verify it's working with the serial monitor
 
-## Known bugs/future plans
-It doesn't handle config.json errors as well as I'd like. I'm planning to play around with OTA updates more, as well as an HTTP server to modify the config. I'm also planning on adding some kind of status LED support, and a rotary encoder for changing lights in the room.
+## Known bugs
+It doesn't handle config.json errors as well as I'd like. Be careful with the _Flash Size_ setting, especially if you have several different platforms. The Arduino IDE resets all of the board settings to defaults when you change board type, so it's very easy to do. If you switch the size or SPIFFS size, either the config will get trashed or the code will look at the wrong address. It's a minor annoyance if you have to go grab the thing from another room/floor to reflash it with a USB cable.
+
+## Future Plans
+- Improve OTA updates
+- Add HTTP web interface to modify the config.
+- Status LED
+- Rotary encoder for changing lights in the room
 
 ## References
 The code in this repo is mostly a combination of the following sources. I'd like to thank them for some awesome guides.
