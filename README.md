@@ -1,6 +1,6 @@
 # MQTT MultiNode
 ## Overview
-This is meant to be a home automation node. It runs on an ESP8266 and uses MQTT to talk to a central server. I'm working with Home Assistant (https://home-assistant.io) at the moment.
+This is meant to be a home automation node. It compiles with the Arduino IDE, runs on an ESP8266 and uses MQTT to talk to a central server. I'm working with Home Assistant (https://home-assistant.io) at the moment.
 
 I think this is in a rough, early stage, but it's doing useful things for me already and I was asked to share it.
 
@@ -33,6 +33,7 @@ I think this is in a rough, early stage, but it's doing useful things for me alr
 ![Fritzing Breadboard](/schematic/mqtt-multinode_bb.jpg?raw=true "Fritzing Breadboard")
 
 ## Installation
+An MQTT broker is required to do anything useful with this sketch. Most of the [References](#References) have details on setting up an MQTT broker. I'm using [Mosquitto](http://mosquitto.org/)  and I'm happy with it.
 1. Install the required libraries. You can find them in the Arduino library manager.
   - DHT sensor library by Adafruit Version 1.2.3 (Not Unified)
   - ArduinoJson by Benoit Blanchon Version 5.0.7
@@ -44,3 +45,9 @@ I think this is in a rough, early stage, but it's doing useful things for me alr
 
 ## Known bugs/future plans
 It doesn't handle config.json errors as well as I'd like. I'm planning to play around with OTA updates more, as well as an HTTP server to modify the config. I'm also planning on adding some kind of status LED support, and a rotary encoder for changing lights in the room.
+
+## References
+The code in this repo is mostly a combination of the following sources. I'd like to thank them for some awesome guides.
+- https://home-assistant.io/blog/2015/10/11/measure-temperature-with-esp8266-and-report-to-mqtt/
+- http://www.instructables.com/id/An-inexpensive-IoT-enabler-using-ESP8266/
+- Arduino IDE examples for ArduinoOTA, ESP8266mDNS, DHT, ArduinoJson, and PubSubClient
