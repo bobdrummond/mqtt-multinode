@@ -4,7 +4,34 @@ This is meant to be a home automation node. It runs on an ESP8266 and uses MQTT 
 
 I think this is in a rough, early stage, but it's doing useful things for me already and I was asked to share it.
 
-## Use
+## Setup
+Components:
+- HC-SR501 PIR Motion Sensor
+  - Setup: an integer value for "motion_pin" in the config.json. Delete the key to disable.
+  - MQTT output on "<node_name>/motion". "ON" when <motion_pin> transitions high, "OFF" when it transitions low
+- DHT22 Temperature and Humidity Sensor
+  - Setup: an integer value for "dht_pin" in the config.json. Delete the key to disable.
+  - MQTT output on "<node_name>/temperature" and "<node_name>/humidity" respectively
+  - Temperature is in Fahrenheit, but can be changed with the #define IS_FAHRENHEIT in the code
+- Relay
+  - Setup: an integer value for "relay_pin" in the config.json. Delete the key to disable.
+  - I'm not sure exactly what cheap ebay relay module I have, but it works with a 3.3 supply. It enables when the "IN" pin is pulled low
+  - MQTT input expected on "<node_name>/relay/set". "ON" will pull <relay_pin> low, "OFF" will set it high
+  - MQTT output on "<node_name>/relay" echos the state after it is set
+- Button
+  - Setup: an integer value for "button_pin" in the config.json. Delete the key to disable.
+  - MQTT output on "<node_name>/button". "ON" when <button_pin> transitions low, "OFF" when it transitions high
+Other:
+- Status
+  - MQTT output on "<node_name>/status" of "ON" when the node sucessfully connects the the MQTT server. A "last will and testament" is set to send "OFF" on the same topic if the node is disconnected
+- Error
+  - MQTT output on "<node_name>/error"
+  - If the node receives a message on a subscribed topic(currently only "<node_name>/relay/set") and it cannot parse it, it will echo the message on the error topic
+  - If the node fails to read from the DHT22 sensor, it will publish "Failed to read from DHT sensor" on the error topic
+
+![Fritzing Breadboard](/schematic/mqtt-multinode_bb.jpg?raw=true "Fritzing Breadboard")
+
+## Installation
 1. Install the required libraries. You can find them in the Arduino library manager.
   - DHT sensor library by Adafruit Version 1.2.3 (Not Unified)
   - ArduinoJson by Benoit Blanchon Version 5.0.7

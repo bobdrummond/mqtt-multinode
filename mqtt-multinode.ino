@@ -38,6 +38,7 @@
 #define DHT_TYPE DHT22   // DHT 11
 #define HUMIDITY_TOPIC (node_name + "/humidity").c_str()
 #define TEMPERATURE_TOPIC (node_name + "/temperature").c_str()
+#define DHT_FAHRENHEIT true
 
 DHT* dht;
 
@@ -387,7 +388,7 @@ void check_temperature() {
     return;
   }
   dht_last_millis = currentMillis;
-  float newTemp = dht->readTemperature(true);
+  float newTemp = dht->readTemperature(DHT_FAHRENHEIT);
   float newHum = dht->readHumidity();
   if (isnan(newTemp) || isnan(newHum)) {
     if (dht_error) return;
