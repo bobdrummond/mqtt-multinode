@@ -33,7 +33,7 @@ I think this is in a rough, early stage, but it's doing useful things for me alr
 ![Fritzing Breadboard](/schematic/mqtt-multinode_bb.jpg?raw=true "Fritzing Breadboard")
 
 ## Installation
-An MQTT broker is required to do anything useful with this sketch. Most of the [References](#References) have details on setting up an MQTT broker. I'm using [Mosquitto](http://mosquitto.org/)  and I'm happy with it.
+An MQTT broker is required to do anything useful with this sketch. Most of the [References](#references) have details on setting up an MQTT broker. I'm using [Mosquitto](http://mosquitto.org/)  and I'm happy with it.
 
 1. Install the required libraries. You can find them in the Arduino library manager.
   - DHT sensor library by Adafruit Version 1.2.3 (Not Unified)
