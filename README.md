@@ -1,4 +1,7 @@
 # MQTT MultiNode
+
+I found the project [ESPEasy](https://www.letscontrolit.com/wiki/index.php/ESPEasy), and started using that instead of continuing development on this.
+
 ## Overview
 This is meant to be a home automation node. It compiles with the Arduino IDE, runs on an ESP8266 and uses MQTT to talk to a central server. I'm working with Home Assistant (https://home-assistant.io) at the moment.
 
