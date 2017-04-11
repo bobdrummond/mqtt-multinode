@@ -9,5 +9,5 @@
     "dht_pin": 14,
     "dht_interval": 10000,
     "motion_pin": 13,
-    "relay_pin": 12,
+    "relay_pin": 12
 }
